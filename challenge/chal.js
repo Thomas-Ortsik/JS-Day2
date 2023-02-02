@@ -28,6 +28,11 @@ function restock() {
 function withdrawal() {
     let message = "";
     let amountToWithdraw = Number(document.getElementById("withdraw").value);
+    if (amountToWithdraw < 0){
+        amountToWithdraw = 0;
+        displayText("Please enter a positive amount.");
+        return;
+    } 
 
     let neededHBills = Math.floor(amountToWithdraw / 100);
     amountToWithdraw = amountToWithdraw % 100;
